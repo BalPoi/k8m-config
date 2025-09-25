@@ -16,12 +16,9 @@ k8s-config/
 │   ├── logging/                    # (Fluentd, Loki)
 │   ├── cert-manager/
 │   └── ingress-nginx/
-├── clusters/
-│   ├── production/                 # Конфигурация для prod-кластера
-│   │   ├── kustomization.yaml     # <- На него указывает корневое приложение ArgoCD
-│   │   └── app-of-apps.yaml       # Список всех приложений для этого кластера
-│   └── staging/
-└── namespaces/                     # Пространства имён и RBAC
-    ├── frontend-ns.yaml
-    └── backend-ns.yaml
+└── clusters/
+    ├── production/                 # Конфигурация для prod-кластера
+    │   ├── kustomization.yaml     # <- На него указывает корневое приложение ArgoCD
+    │   └── app-of-apps.yaml       # Список всех приложений для этого кластера
+    └── staging/
 ```
