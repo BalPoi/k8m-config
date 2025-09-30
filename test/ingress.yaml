@@ -4,6 +4,13 @@ metadata:
   name: bal-ingress
 spec:
   rules:
+    - host: argocd.my
+      http:
+        paths:
+          - backend:
+              service:
+                name: argocd-server
+            pathType: Prefix
     - host: bal-server.my
       http:
         paths:
