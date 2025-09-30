@@ -15,7 +15,7 @@ spec:
       containers:
         - name: bal-server
           image: balpoi/bal-server:latest
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
       restartPolicy: Always
   selector:
     matchLabels:
