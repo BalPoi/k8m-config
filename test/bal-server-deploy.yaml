@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bal-server
+  labels:
+    app: bal-server
+spec:
+  replicas: 2
+  template:
+    metadata:
+      name: bal-server
+      labels:
+        app: bal-server
+    spec:
+      containers:
+        - name: bal-server
+          image: balpoi/bal-server:latest
+          imagePullPolicy: IfNotPresent
+      restartPolicy: Always
+  selector:
+    matchLabels:
+      app: bal-server
