@@ -4,9 +4,10 @@ metadata:
   name: bal-ingress
 spec:
   rules:
-    - http:
+    - host: bal-server.my
+      http:
         paths:
-          - path: /bal-server
+          - path: /
             pathType: Prefix
             backend:
               service:
