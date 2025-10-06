@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: bal-server-cm
+data:
+  application.yaml: |-
+    server:
+      port: 8080
+    
+    logging:
+      level:
+        root: INFO
+    
+    spring:
+      application:
+        name: bal-server
+      datasource:
+        driver-class-name: org.postgresql.Driver
+        url: jdbc:postgresql://localhost:5432/postgres
+        username: postgres
+        password: password
+      jooq:
+        sql-dialect: POSTGRES
+        
+    testk: test
