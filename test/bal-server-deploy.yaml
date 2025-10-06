@@ -16,6 +16,14 @@ spec:
         - name: bal-server
           image: balpoi/bal-server:latest
           imagePullPolicy: Always
+          volumeMounts:
+            - name: bal-server-config-volume
+              mountPath: /app/config
+              readOnly: true
+      volumes:
+        - name: bal-server-config-volume
+          configMap:
+            name: bal-server-cm
       restartPolicy: Always
   selector:
     matchLabels:
