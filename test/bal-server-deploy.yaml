@@ -5,7 +5,6 @@ metadata:
   labels:
     app: bal-server
 spec:
-  replicas: 2
   template:
     metadata:
       name: bal-server
