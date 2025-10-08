@@ -17,7 +17,7 @@ spec:
           imagePullPolicy: Always
           resources:
             requests:
-              cpu: 500m
+              cpu: 2
           volumeMounts:
             - name: bal-server-config-volume
               mountPath: /app/config
