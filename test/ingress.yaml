@@ -14,3 +14,10 @@ spec:
                 name: bal-server
                 port:
                   number: 8080
+          - path: /grpc
+            pathType: Prefix
+            backend:
+              service:
+                name: bal-server
+                port:
+                  number: 8081

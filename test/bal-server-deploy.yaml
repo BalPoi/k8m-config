@@ -15,6 +15,11 @@ spec:
         - name: bal-server
           image: balpoi/bal-server:latest
           imagePullPolicy: Always
+          resources:
+            requests:
+              cpu: 100m
+            limits:
+              cpu: 200m
           volumeMounts:
             - name: bal-server-config-volume
               mountPath: /app/config
