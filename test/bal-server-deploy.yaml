@@ -17,7 +17,7 @@ spec:
           imagePullPolicy: Always
           resources:
             requests:
-              cpu: 100m
+              cpu: 5m
             limits:
               cpu: 200m
           volumeMounts:
