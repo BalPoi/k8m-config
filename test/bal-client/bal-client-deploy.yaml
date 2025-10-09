@@ -1,32 +1,33 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: bal-server
+  name: bal-client
   labels:
-    app: bal-server
+    app: bal-client
 spec:
+  replicas: 2
   template:
     metadata:
-      name: bal-server
+      name: bal-client
       labels:
-        app: bal-server
+        app: bal-client
     spec:
       containers:
-        - name: bal-server
-          image: balpoi/bal-server:latest
+        - name: bal-client
+          image: balpoi/bal-client:latest
           imagePullPolicy: Always
           resources:
             requests:
-              cpu: 2
+              cpu: 2000m
           volumeMounts:
-            - name: bal-server-config-volume
+            - name: bal-client-config-volume
               mountPath: /app/config
               readOnly: true
       volumes:
-        - name: bal-server-config-volume
+        - name: bal-client-config-volume
           configMap:
-            name: bal-server-cm
+            name: bal-client-cm
       restartPolicy: Always
   selector:
     matchLabels:
-      app: bal-server
+      app: bal-client

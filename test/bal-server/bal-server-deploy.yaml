@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bal-server
+  labels:
+    app: bal-server
+spec:
+  template:
+    metadata:
+      name: bal-server
+      labels:
+        app: bal-server
+    spec:
+      containers:
+        - name: bal-server
+          image: balpoi/bal-server:latest
+          imagePullPolicy: Always
+          resources:
+            requests:
+              cpu: 2000m
+          volumeMounts:
+            - name: bal-server-config-volume
+              mountPath: /app/config
+              readOnly: true
+      volumes:
+        - name: bal-server-config-volume
+          configMap:
+            name: bal-server-cm
+      restartPolicy: Always
+  selector:
+    matchLabels:
+      app: bal-server

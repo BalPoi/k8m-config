@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: bal-client-cm
+data:
+  application.yaml: |-
+    server:
+      port: 8080
+    
+    logging:
+      level:
+        root: INFO
+    
+    spring:
+      application:
+        name: bal-client
+    
+      grpc:
+        client:
+          channels:
+            bal-server:
+              address: static://bal-server:8081
+    
+      datasource:
+        driver-class-name: org.postgresql.Driver
+        url: jdbc:postgresql://localhost:5432/postgres
+        username: postgres
+        password: password
